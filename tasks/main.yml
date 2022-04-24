@@ -1,0 +1,31 @@
+---
+
+- name: install required site packages
+  ansible.builtin.package:
+    name: '{{ packages.site }}'
+    state: present
+  when: packages.site | default([]) | len > 0
+
+- name: install required server packages
+  ansible.builtin.package:
+    name: '{{ packages.server }}'
+    state: present
+  when:
+    - packages.server | default([]) | len > 0
+    - "'client' not in group_names"
+
+- name: install required client packages
+  ansible.builtin.package:
+    name: '{{ packages.client }}'
+    state: present
+  when:
+    - packages.client | default([]) | len > 0
+    - "'client' in group_names"
+
+- name: set default editor
+  community.general.alternatives:
+    name: editor
+    path: '{{ packages.editor }}'
+    priority: 100
+  when: packages.editor != ""
+

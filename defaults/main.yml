@@ -1,0 +1,8 @@
+---
+
+packages:
+  site: []
+  server: []
+  client: []
+  editor: /usr/bin/vim
+
