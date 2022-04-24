@@ -4,14 +4,14 @@
   ansible.builtin.package:
     name: '{{ packages.site }}'
     state: present
-  when: packages.site | default([]) | len > 0
+  when: packages.site | default([]) | length > 0
 
 - name: install required server packages
   ansible.builtin.package:
     name: '{{ packages.server }}'
     state: present
   when:
-    - packages.server | default([]) | len > 0
+    - packages.server | default([]) | length > 0
     - "'client' not in group_names"
 
 - name: install required client packages
@@ -19,7 +19,7 @@
     name: '{{ packages.client }}'
     state: present
   when:
-    - packages.client | default([]) | len > 0
+    - packages.client | default([]) | length > 0
     - "'client' in group_names"
 
 - name: set default editor
