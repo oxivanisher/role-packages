@@ -28,4 +28,3 @@
     path: '{{ packages.editor }}'
     priority: 100
   when: packages.editor != ""
-
