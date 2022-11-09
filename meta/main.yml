@@ -1,5 +1,6 @@
 galaxy_info:
   role_name: packages
+  namespace: oxivanisher
   author: Marc Urben
   description: Install basic packages
   company: Thunderbluff
