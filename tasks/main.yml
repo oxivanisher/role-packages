@@ -28,3 +28,4 @@
     path: '{{ packages.editor }}'
     priority: 100
   when: packages.editor != ""
+  ignore_errors: "{{ ansible_check_mode }}"
