@@ -5,7 +5,7 @@
     state: present
   when: packages.site | default([]) | length > 0
 
-- name: install required server packages
+- name: Install required server packages
   ansible.builtin.package:
     name: "{{ packages.server }}"
     state: present
@@ -13,7 +13,7 @@
     - packages.server | default([]) | length > 0
     - "'client' not in group_names"
 
-- name: install required client packages
+- name: Install required client packages
   ansible.builtin.package:
     name: "{{ packages.client }}"
     state: present
@@ -21,7 +21,7 @@
     - packages.client | default([]) | length > 0
     - "'client' in group_names"
 
-- name: install required client python packages
+- name: Install required client python packages
   ansible.builtin.pip:
     name: "{{ packages.client_pip }}"
     state: present
@@ -29,7 +29,7 @@
     - packages.client_pip | default([]) | length > 0
     - "'client' in group_names"
 
-- name: set default editor
+- name: Set default editor
   community.general.alternatives:
     name: editor
     path: "{{ packages.editor }}"
