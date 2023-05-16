@@ -1,7 +1,7 @@
 ---
-
 packages:
   site: []
   server: []
   client: []
+  client_pip: []
   editor: /usr/bin/vim
