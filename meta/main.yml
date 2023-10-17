@@ -51,5 +51,7 @@ galaxy_info:
   galaxy_tags:
     - packages
 
-dependencies:
-  - role: community.general.alternatives
+dependencies: []
+
+collections:
+  - community.general
