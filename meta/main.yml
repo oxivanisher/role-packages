@@ -52,4 +52,5 @@ galaxy_info:
     - packages
 
 dependencies:
-  - role: community.general.alternatives
+  []
+  # - role: community.general.alternatives
