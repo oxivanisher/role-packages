@@ -21,14 +21,6 @@
     - packages.client | default([]) | length > 0
     - "'client' in group_names"
 
-- name: Install required client python packages
-  ansible.builtin.pip:
-    name: "{{ packages.client_pip }}"
-    state: present
-  when:
-    - packages.client_pip | default([]) | length > 0
-    - "'client' in group_names"
-
 - name: Set default editor
   community.general.alternatives:
     name: editor
