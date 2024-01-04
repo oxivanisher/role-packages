@@ -1,9 +1,9 @@
 ---
 - name: Install required site packages
   ansible.builtin.package:
-    name: "{{ packages.site }}"
+    name: "{{ packages_site }}"
     state: present
-  when: packages.site | default([]) | length > 0
+  when: packages_site | default([]) | length > 0
 
 - name: Install required server packages
   ansible.builtin.package:
@@ -15,16 +15,16 @@
 
 - name: Install required client packages
   ansible.builtin.package:
-    name: "{{ packages.client }}"
+    name: "{{ packages_client }}"
     state: present
   when:
-    - packages.client | default([]) | length > 0
+    - packages_client | default([]) | length > 0
     - "'client' in group_names"
 
 - name: Set default editor
   community.general.alternatives:
     name: editor
-    path: "{{ packages.editor }}"
+    path: "{{ packages_editor }}"
     priority: 100
-  when: packages.editor | length > 0
+  when: packages_editor | length > 0
   ignore_errors: "{{ ansible_check_mode }}"
