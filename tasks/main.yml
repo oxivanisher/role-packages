@@ -3,12 +3,16 @@
   ansible.builtin.package:
     name: "{{ packages_site }}"
     state: present
+  become: true
+  become_user: root
   when: packages_site | default([]) | length > 0
 
 - name: Install required server packages
   ansible.builtin.package:
     name: "{{ packages.server }}"
     state: present
+  become: true
+  become_user: root
   when:
     - packages.server | default([]) | length > 0
     - "'client' not in group_names"
@@ -17,6 +21,8 @@
   ansible.builtin.package:
     name: "{{ packages_client }}"
     state: present
+  become: true
+  become_user: root
   when:
     - packages_client | default([]) | length > 0
     - "'client' in group_names"
@@ -26,5 +32,7 @@
     name: editor
     path: "{{ packages_editor }}"
     priority: 100
+  become: true
+  become_user: root
   when: packages_editor | length > 0
   ignore_errors: "{{ ansible_check_mode }}"
