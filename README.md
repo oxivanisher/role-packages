@@ -6,11 +6,11 @@ Install packages and configure your editor as the editor alternative.
 Role Variables
 --------------
 
-| Name          | Comment                              | Default value |
-|---------------|--------------------------------------|---------------|
-| packages_site  | A list of packages which will be installed on all machines | `[]`          |
-| packages_server | A list of packages which will be installed only on machines in the server host group | `[]`          |
-| packages_client | A list of packages which will be installed only on machines in the client host group | `[]`          |
+| Name            | Comment                              | Default value |
+|-----------------|--------------------------------------|---------------|
+| packages_site   | A list of packages which is intended for all systems | `[]`          |
+| packages_group  | A list of packages which is intended for the main group of the system | `[]`          |
+| packages_host   | A list of packages which is intended for system specific packages | `[]`          |
 | packages_editor | A list of packages which will be installed only on machines in the client host group | `/usr/bin/vim`          |
 
 Example Playbook
