@@ -1,5 +1,5 @@
 ---
 packages_site: []
-packages_server: []
-packages_client: []
+packages_group: []
+packages_host: []
 packages_editor: /usr/bin/vim
