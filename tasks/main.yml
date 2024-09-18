@@ -7,24 +7,23 @@
   become_user: root
   when: packages_site | default([]) | length > 0
 
-- name: Install required server packages
+- name: Install required group packages
   ansible.builtin.package:
-    name: "{{ packages.server }}"
+    name: "{{ packages_group }}"
     state: present
   become: true
   become_user: root
   when:
-    - packages.server | default([]) | length > 0
-    - "'client' not in group_names"
+    - packages_group | default([]) | length > 0
 
-- name: Install required client packages
+- name: Install required host packages
   ansible.builtin.package:
-    name: "{{ packages_client }}"
+    name: "{{ packages_host }}"
     state: present
   become: true
   become_user: root
   when:
-    - packages_client | default([]) | length > 0
+    - packages_host | default([]) | length > 0
     - "'client' in group_names"
 
 - name: Set default editor
