@@ -24,7 +24,6 @@
   become_user: root
   when:
     - packages_host | default([]) | length > 0
-    - "'client' in group_names"
 
 - name: Set default editor
   community.general.alternatives:
