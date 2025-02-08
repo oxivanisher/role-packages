@@ -1,5 +1,6 @@
 packages
 ========
+[![Ansible Lint](https://github.com/oxivanisher/role-packages/actions/workflows/ansible-lint.yml/badge.svg)](https://github.com/oxivanisher/role-packages/actions/workflows/ansible-lint.yml)
 
 Install packages and configure your editor as the editor alternative.
 
