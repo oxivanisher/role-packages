@@ -4,7 +4,6 @@
     name: "{{ packages_site }}"
     state: present
   become: true
-  become_user: root
   when: packages_site | default([]) | length > 0
 
 - name: Install required group packages
@@ -12,7 +11,6 @@
     name: "{{ packages_group }}"
     state: present
   become: true
-  become_user: root
   when:
     - packages_group | default([]) | length > 0
 
@@ -21,7 +19,6 @@
     name: "{{ packages_host }}"
     state: present
   become: true
-  become_user: root
   when:
     - packages_host | default([]) | length > 0
 
@@ -31,6 +28,5 @@
     path: "{{ packages_editor }}"
     priority: 100
   become: true
-  become_user: root
   when: packages_editor | length > 0
   ignore_errors: "{{ ansible_check_mode }}"
